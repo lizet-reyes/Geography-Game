@@ -1,4 +1,4 @@
-Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv', function(err, rows){
+Plotly.d3.csv('geo.csv', function(err, rows){
       function unpack(rows, key) {
           return rows.map(function(row) { return row[key]; });
       }
@@ -7,10 +7,10 @@ Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_us_
               type: 'choropleth',
               locationmode: 'USA-states',
               locations: unpack(rows, 'code'),
-              z: unpack(rows, 'total exports'),
+              z: unpack(rows, 'number'),
               text: unpack(rows, 'state'),
               zmin: 0,
-              zmax: 17000,
+              zmax: 49,
               colorscale: [
                 [0, 'rgb(72, 244, 66)'], [0.2, 'rgb(196, 101, 43)'],
                 [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
@@ -19,7 +19,7 @@ Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_us_
 
             marker: {
               line:{
-                color: 'rgb(255,255,255)',
+                color: 'rgb(176,196,222)',
                 width: 2
               }
             }
@@ -31,7 +31,7 @@ console.log(data.locations);
           geo:{
             scope: 'usa',
             showlakes: true,
-            lakecolor: 'rgb(255,255,255)'
+            lakecolor: 'rgb(176,196,222)'
           }
       };
       Plotly.plot(myDiv, data, layout, {showLink: false});
