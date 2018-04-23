@@ -16,7 +16,10 @@ Plotly.d3.csv('geo.csv', function(err, rows){
                 [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
                 [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
               ],
+        colorbar: {
 
+              thickness: 2
+          },
             marker: {
               line:{
                 color: 'rgb(176,196,222)',
@@ -36,3 +39,21 @@ console.log(data.locations);
       };
       Plotly.plot(myDiv, data, layout, {showLink: false});
   });
+
+var button = document.getElementById("submitState");
+button.addEventListener("click", () => {
+    document.getElementById('solutions').textContent = submitState()
+});
+
+function submitState() {
+    var US = document.getElementById('U.S.').value;
+
+    if (US = z ){
+     changeElementClass("solutions", "correct");
+    return US;
+}
+}
+function changeElementClass(id, cssclass) {
+    var el = document.getElementById(id);
+    el.className = cssclass;
+}
