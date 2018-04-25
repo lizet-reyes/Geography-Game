@@ -1,77 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Geography Game</title>
+    <title>Geography Game</title>
 
-	<style>
-	  #alert {
-	    font-family: Arial, Helvetica, sans-serif;
-	    font-size: 16px;
-	    background-color: #9cc;
-	    color: #333;
-	    padding: 5px;
-	    font-weight: bold;
-	  }
-	</style>
-
-	<script src="../lib/raphael.js"></script>
-	<!-- <script src="scale.raphael.js"></script> -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-	<script src="color.jquery.js"></script>
-	<script src="../jquery.usmap.js"></script>
-
-	<script>
-	$(document).ready(function() {
-	  $('#map').usmap({
-	    'stateSpecificStyles': {
-	      'AK' : {fill: '#333'}
-	    },
-
-
-
-
-
-
-	    'click' : function(event, data) {
-	      $('#alert')
-	        .text('Guess the state: ')
-	        .stop()
-	        .css('backgroundColor', '#9cc')
-	        .animate({backgroundColor: '#ddd'}, 1000);
-	    }
-	  });
-
-
-
-	  $('#over-md').click(function(event){
-	    $('#map').usmap('trigger', 'MD', 'mouseover', event);
-	  });
-
-	  $('#out-md').click(function(event){
-	    $('#map').usmap('trigger', 'MD', 'mouseout', event);
-	  });
-	});
-	</script>
-</head>
     <style>
+        #alert {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            background-color: #9cc;
+            color: #333;
+            padding: 5px;
+            font-weight: bold;
+
+        }
+
+        #input {
+            visibility: hidden;
+        }
+    </style>
+
+    <script src="../lib/raphael.js"></script>
+    <!-- <script src="scale.raphael.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="color.jquery.js"></script>
+    <script src="../jquery.usmap.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#map').usmap({
+                'stateSpecificStyles': {
+                    'AK': {
+                        fill: '#333'
+                    }
+                },
+
+
+                'click': function(event, data) {
+                    $('#alert')
+                        .stop()
+                        .css('backgroundColor', '#9cc')
+                        .animate({
+                            backgroundColor: '#ddd'
+                        }, 1000);
+                    $('#input')
+                        .css('visibility', 'visible');
+                }
+            });
+
+
+
+            $('#over-md').click(function(event) {
+                $('#map').usmap('trigger', 'MD', 'mouseover', event);
+            });
+
+            $('#out-md').click(function(event) {
+                $('#map').usmap('trigger', 'MD', 'mouseout', event);
+            });
+        });
+    </script>
+</head>
+<style>
     div {
         color: black;
         background-color: lightgoldenrodyellow;
         font-family: cursive;
         Font-size: 25px;
     }
- body {
-        background-color: lightgoldenrodyellow;
 
+    body {
+        background-color: lightgoldenrodyellow;
     }
 </style>
+
 <body>
 
-     <center><h1>U.S. Geography Quiz!</h1> <br>
-         <h3>Highest score: </h3></center>
-    <div id="alert">Click a State</div>
+    <center>
+        <h1>U.S. Geography Quiz!</h1> <br>
+        <h3>Highest score: </h3>
+    </center>
+    <div id="alert">Click a State
+    <div id="input">What is the State? <input type="text" id="U.S.">
+            <ul id="state"></ul>
+            <button id="submitState">Submit</button> <br> <br>
+            <script src="geo.js"></script>
+               <div id="solutions" class=".none"></div>
+        </div> </div>
 
-    <center> <div id="map" style="width: 650px; height: 650px; border: solid 3px red;"></div> </center>
+    <center>
+        <div id="map" style="width: 650px; height: 650px; border: solid 3px red;"></div>
+    </center>
 
 </body>
 </html>
