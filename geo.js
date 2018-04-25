@@ -5,7 +5,7 @@ button.addEventListener("click", () => {
 
 function submitState() {
     var US = document.getElementById('U.S.').value;
-    if (US= data) {return "Correct"; }
+    if (US= data.name) {return "Correct"; }
 
 }
 
