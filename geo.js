@@ -57,3 +57,4 @@ function changeElementClass(id, cssclass) {
     var el = document.getElementById(id);
     el.className = cssclass;
 }
+
