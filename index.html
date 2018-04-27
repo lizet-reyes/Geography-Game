@@ -17,6 +17,10 @@
         #input {
             visibility: hidden;
         }
+
+        #answer {
+            visibility: hidden;
+        }
     </style>
 
     <script src="../lib/raphael.js"></script>
@@ -44,6 +48,10 @@
                         }, 1000);
                     $('#input')
                         .css('visibility', 'visible');
+
+                    $('#answer').text(data.name);
+
+
                 }
             });
 
@@ -59,8 +67,7 @@
         });
     </script>
 </head>
-<style>
-    div {
+<style>    div {
         color: black;
         background-color: lightgoldenrodyellow;
         font-family: cursive;
@@ -79,12 +86,14 @@
         <h3>Highest score: </h3>
     </center>
     <div id="alert">Click a State
-    <div id="input">What is the State? <input type="text" id="U.S.">
+        <div id="input">What is the State? <input type="text" id="U.S.">
             <ul id="state"></ul>
             <button id="submitState">Submit</button> <br> <br>
             <script src="geo.js"></script>
-               <div id="solutions" class=".none"></div>
-        </div> </div>
+               <div id="answer"></div>
+            <div id= "feedback" class=".none"></div>
+        </div>
+    </div>
 
     <center>
         <div id="map" style="width: 650px; height: 650px; border: solid 3px red;"></div>
