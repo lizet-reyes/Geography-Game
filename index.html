@@ -11,7 +11,6 @@
             color: #333;
             padding: 5px;
             font-weight: bold;
-
         }
 
         #input {
@@ -49,8 +48,8 @@
                     $('#input')
                         .css('visibility', 'visible');
 
-                    $('#answer').text(data.name);
-
+                    $('#answer')
+                        .text(data.name);
 
                 }
             });
@@ -67,7 +66,8 @@
         });
     </script>
 </head>
-<style>    div {
+<style>
+    div {
         color: black;
         background-color: lightgoldenrodyellow;
         font-family: cursive;
@@ -83,15 +83,13 @@
 
     <center>
         <h1>U.S. Geography Quiz!</h1> <br>
-        <h3>Highest score: </h3>
     </center>
     <div id="alert">Click a State
         <div id="input">What is the State? <input type="text" id="U.S.">
-            <ul id="state"></ul>
             <button id="submitState">Submit</button> <br> <br>
+            <div id="answer"></div>
+            <div id="feedback" class=".none"></div>
             <script src="geo.js"></script>
-               <div id="answer"></div>
-            <div id= "feedback" class=".none"></div>
         </div>
     </div>
 

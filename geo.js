@@ -4,8 +4,8 @@ button.addEventListener("click", () => {
 });
 
 function submitState() {
-    var US = document.getElementById('U.S.').valuetextContent;
-    var datainfo = document.getElementById('answer').valuetextContent;
+    var US = document.getElementById('U.S.').value;
+    var datainfo = document.getElementById('answer').textContent;
     if (US === datainfo) {
         return "Correct";
     } else
